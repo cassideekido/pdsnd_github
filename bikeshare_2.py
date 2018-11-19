@@ -114,18 +114,18 @@ def time_stats(DataFrame):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    # display the most popular month
     month_index = DataFrame['Month'].mode()[0]
-    common_month = cal.month_name[month_index]
-    print('The most common month to travel is {}'.format(common_month))
+    popular_month = cal.month_name[month_index]
+    print('The most popular month to travel is {}'.format(popular_month))
 
-    # display the most common day of week
-    common_day = DataFrame['Day of Week'].mode()[0]
-    print('The most common day of the week to travel is {}'.format(common_day))
+    # display the most popular day of week
+    popular_day = DataFrame['Day of Week'].mode()[0]
+    print('The most popular day of the week to travel is {}'.format(popular_day))
 
-    # display the most common start hour
+    # display the most popular start hour
     hours = DataFrame['Start Time'].dt.hour.mode()[0]
-    print('The most common hour to start travelling is {}'.format(hours))
+    print('The most popular hour to start travelling is {}'.format(hours))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -138,18 +138,18 @@ def station_stats(DataFrame):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # display most commonly used start station
-    common_start = DataFrame['Start Station'].mode()[0]
-    print('The most common station to start travelling from is {}'.format(common_start))
+    # display most popularly used start station
+    popular_start = DataFrame['Start Station'].mode()[0]
+    print('The most popular station to start travelling from is {}'.format(popular_start))
 
-    # display most commonly used end station
-    common_end = DataFrame['End Station'].mode()[0]
-    print('The most common station to finish your travels is {}'.format(common_end))
+    # display most popularly used end station
+    popular_end = DataFrame['End Station'].mode()[0]
+    print('The most popular station to finish your travels is {}'.format(popular_end))
 
     # display most frequent combination of start station and end station trip
     DataFrame['Start End'] = DataFrame['Start Station'] + ' / ' + DataFrame['End Station']
-    common_start_end = DataFrame['Start End'].mode()[0]
-    print('The most common start / end combination for travel is {}'.format(common_start_end))
+    popular_start_end = DataFrame['Start End'].mode()[0]
+    print('The most popular start / end combination for travel is {}'.format(popular_start_end))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -208,16 +208,16 @@ def user_stats(DataFrame, city):
         print(gender_count)
         print('\n')
 
-    # Display earliest, most recent, and most common year of birth
+    # Display earliest, most recent, and most popular year of birth
     if city.lower() == 'washington':
         print('There is no birth year data for this city.')
     else:
         oldest = int(DataFrame['Birth Year'].min())
         youngest = int(DataFrame['Birth Year'].max())
-        common_birth = int(DataFrame['Birth Year'].mode()[0])
+        popular_birth = int(DataFrame['Birth Year'].mode()[0])
         print('The oldest user was born in {}'.format(oldest))
         print('The youngest user was born in {}'.format(youngest))
-        print('The most common birth year among users is {}'.format(common_birth))
+        print('The most popular birth year among users is {}'.format(popular_birth))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
