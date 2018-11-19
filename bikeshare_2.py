@@ -55,6 +55,7 @@ def get_filters():
                     else:
                         day = 'all'
                         break
+
     # get user input for day of week (all, monday, tuesday, ... sunday)
             elif next == 'day':
                 while True:
@@ -69,7 +70,7 @@ def get_filters():
                         month = 'all'
                         break
         break
-    # print(city, month, day)
+
     print('-'*40)
     return city, month, day
 
@@ -128,7 +129,6 @@ def time_stats(df):
     hours = df['Start Time'].dt.hour.mode()[0]
     print('The most common hour to start travelling is {}'.format(hours))
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -177,6 +177,7 @@ def trip_duration_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
 
 def time_parts(time):
     """ Breaks down a datetime object into its individual parts of
@@ -259,7 +260,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
