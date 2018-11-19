@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import calendar as cal
 
+# information about the bikeshare data we have available
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -178,6 +179,8 @@ def trip_duration_stats(df):
     print('-'*40)
 
 def time_parts(time):
+    """ Breaks down a datetime object into its individual parts of
+    days, hours, minutes, and seconds. """
 
     days = time.days
     hours = time.seconds//3600
@@ -237,6 +240,7 @@ def main():
         second_index = 5
         increment = 5
 
+        # Determines if user wants to see raw data from potentially filtered file.
         while True:
             try:
                 show_raw_data = input('\nWould you like to see raw data? Enter yes or no.\n')
